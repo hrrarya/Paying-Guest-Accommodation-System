@@ -1,22 +1,167 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Yeon Sung", cursive;
+  font-family: "ZCOOL XiaoWei", serif;
+}
+.right {
+  float: right;
+  margin-top: 5px;
+}
+.navbar {
+  background: #ffafbd; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #ffc3a0,
+    #ffafbd
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #ffc3a0,
+    #ffafbd
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+ul.nav-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu li {
+  float: left;
+}
+.nav-menu li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  padding: 10px 15px;
+  margin: 0px 3px;
+  border-radius: 10px;
+  transition: 1s;
+}
+.nav-menu li a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.nav-menu li a:focus {
+  transition: 1s;
+  border-bottom: 1px solid gray;
+}
+.header-top-menu ul li a {
+  color: gray;
+}
+.header-top-menu ul li a:hover {
+  color: #000;
+}
+.logo a {
+  font-size: 25px;
+}
+
+#home {
+  height: 300px;
+  background: #ffafbd; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffc3a0,
+    #ffafbd
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffc3a0,
+    #ffafbd
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   text-align: center;
+  padding: 60px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#search {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 10px 5px;
+}
+
+#search input {
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#search input:focus {
+  box-shadow: none;
+}
+#post .card {
+  margin-bottom: 15px;
+}
+
+h5 span {
+  color: gray;
+  border-color: gray;
+}
+#post img {
+  height: 200px;
+}
+
+#footer {
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
   color: white;
 }
+#postDetails {
+  background-color: white;
+  padding: 10px;
+}
+.imgSection img {
+  width: 350px;
+}
+/* RAINTG */
 
-.App-link {
-  color: #09d3ac;
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input {
+  display: none;
+}
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+  float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label {
+  color: #ffd700;
+} /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label {
+  color: #ffed85;
 }

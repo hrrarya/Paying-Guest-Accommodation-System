@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/navbar";
+import { getPosts } from "./postdata";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    posts: getPosts()
+  };
+
+  handleLike = post => {
+    const posts = [...this.state.posts];
+    const selectedMovie = posts.indexOf(post);
+    posts[selectedMovie].Like = !posts[selectedMovie].Like;
+
+    this.setState({
+      posts
+    });
+  };
+
+  render() {
+    const { posts } = this.state;
+    return (
+      <div className="container">
+        <Navbar posts={posts} onLike={this.handleLike} />
+      </div>
+    );
+  }
 }
 
 export default App;
